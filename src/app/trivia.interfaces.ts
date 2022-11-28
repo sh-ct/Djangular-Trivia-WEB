@@ -1,16 +1,16 @@
 // Answer interface determines the structure of an answer type
-export interface iAnswer {
+export interface IAnswer {
   answer: string,
   is_correct: boolean;
 }
 
-interface AnswerArray extends Array<iAnswer> { }
+interface IAnswerArray extends Array<IAnswer> { }
 
 // Question interface determines the structure of a question type
-export interface iQuestion {
+export interface IQuestion {
   question: string,
   category: string,
-  answers: AnswerArray
+  answers: IAnswerArray
 }
 
-export interface QuestionArray extends Array<iQuestion> { }
+export interface IQuestionArray extends Array<IQuestion> { }
