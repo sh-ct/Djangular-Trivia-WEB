@@ -9,11 +9,13 @@ import { TriviaComponent } from './trivia/trivia.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {MatRadioModule} from "@angular/material/radio";
+import {ASCIIConverterPipe} from "./ASCIIConverter.pipe";
 
 @NgModule({
   declarations: [
     AppComponent,
-    TriviaComponent
+    TriviaComponent,
+    ASCIIConverterPipe
   ],
   imports: [
     BrowserModule,

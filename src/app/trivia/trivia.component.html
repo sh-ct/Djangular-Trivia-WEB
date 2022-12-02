@@ -1,13 +1,13 @@
 <div id="question-container">
   <ng-container *ngIf="question; else quizComplete">
     <p><b>{{ question.category }}</b></p>
-    <label id="question-radio-group-label" [innerHTML]="question.question"></label>
+    <label id="question-radio-group-label" [innerHTML]="question.question | ASCIIConverter"></label>
     <mat-radio-group
       aria-labelledby="question-radio-group-label"
       class="question-radio-group"
       [(ngModel)]="answer">
       <mat-radio-button class="question-radio-button" *ngFor="let answer of question.answers" [value]="answer">
-        {{answer.answer}}
+        {{answer.answer | ASCIIConverter}}
       </mat-radio-button>
     </mat-radio-group>
 
@@ -16,7 +16,7 @@
         <p>Correct!</p>
       </div>
       <ng-template #incorrect>
-        <p>Wrong! The correct answer is {{ getCorrectAnswer() }}</p>
+        <p>Wrong! The correct answer is {{ getCorrectAnswer() | ASCIIConverter}}</p>
       </ng-template>
     </div>
   </ng-container>
