@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TriviaService } from "../trivia.service";
 import { IQuestion, IQuestionArray, IAnswer } from "../trivia.interfaces";
+import { MatRadioChange } from "@angular/material/radio";
 
 @Component({
   selector: 'app-trivia',
@@ -12,6 +13,10 @@ export class TriviaComponent implements OnInit {
   triviaData: IQuestionArray = [];
   question: IQuestion|null = null;
   answer: IAnswer|null = null;
+  disableRadioButtons: boolean = false;
+  disableNextButton: boolean = true;
+  questionNumber: number = 0;
+  correctAnswers: number = 0;
 
   constructor(private triviaService: TriviaService) { }
 
@@ -39,6 +44,17 @@ export class TriviaComponent implements OnInit {
     } else {
       this.question = null;
     }
+
+    if (this.answer) {
+      this.questionNumber++;
+      if (this.answer.is_correct) {
+        this.correctAnswers++;
+      }
+    }
+
+    this.answer = null;
+    this.disableRadioButtons = false;
+    this.disableNextButton = true;
   }
 
   getCorrectAnswer() {
@@ -46,6 +62,11 @@ export class TriviaComponent implements OnInit {
     return this.question.answers.filter(answer => answer.is_correct)[0].answer;
     }
     return '';
+  }
+
+  answerSelected(event: MatRadioChange) {
+    this.disableRadioButtons = true;
+    this.disableNextButton = false;
   }
 
 

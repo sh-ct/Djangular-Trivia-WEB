@@ -10,6 +10,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {MatRadioModule} from "@angular/material/radio";
 import {ASCIIConverterPipe} from "./ASCII-converter-pipe";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {ASCIIConverterPipe} from "./ASCII-converter-pipe";
     HttpClientModule,
     FormsModule,
     MatRadioModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
